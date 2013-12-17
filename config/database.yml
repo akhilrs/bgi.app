@@ -19,6 +19,7 @@ development:
   encoding: unicode
   database: bgi_app_development
   pool: 5
+  host: localhost
   username: root
   password: pass
 
@@ -48,8 +49,9 @@ test:
   encoding: unicode
   database: bgi_app_test
   pool: 5
-  username: bgi_app
-  password:
+  host: localhost
+  username: root
+  password: pass
 
 production:
   adapter: postgresql
