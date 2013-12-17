@@ -2,6 +2,7 @@
 body{background: #84D6FF;}
 header{padding-top:20px;}
 header img{padding: 1em;background: #fff;}
+nav li:not(:first-child):before{content: '|'; color: #d3d3d3;}
 section{margin-top: 1em; font-size: 120%;padding: 20px;background: #fff;}
 /*Links */
 a{color: #09c; text-decoration: none;}
