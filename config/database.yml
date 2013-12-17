@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: bgi_app_development
   pool: 5
-  username: bgi_app
-  password:
+  username: root
+  password: pass
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: bgi_app_production
   pool: 5
-  username: bgi_app
-  password:
+  username: root
+  password: pass
