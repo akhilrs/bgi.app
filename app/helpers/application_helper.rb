@@ -9,6 +9,6 @@ module ApplicationHelper
 	end
 
 	def logo
-		image_tag("logo.jpg", :alt => "BGI RoR App", :class => "round")
+		image_tag("logo.png", :alt => "BGI RoR App", :class => "round")
 	end
 end

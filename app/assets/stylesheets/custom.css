@@ -1,5 +1,5 @@
 .container{width: 710px;}
-body{background: #84D6FF;}
+body{background: #C9EDFF;}
 header{padding-top:20px;}
 header img{padding: 1em;background: #fff;}
 nav li:not(:first-child):before{content: '|'; color: #d3d3d3;}
