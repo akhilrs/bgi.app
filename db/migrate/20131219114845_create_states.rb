@@ -1,8 +1,9 @@
 class CreateStates < ActiveRecord::Migration
   def change
     create_table :states do |t|
-
-      t.timestamps
+    	t.string :name, :limit => 80
+    	t.integer :country_id
+    	t.string :iso, :limit => 10
     end
   end
 end
