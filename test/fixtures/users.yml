@@ -4,14 +4,20 @@ one:
   fname: MyString
   lname: MyString
   email: MyString
-  passowrd: MyString
-  salt: MyString
   mobile: 1.5
+  address1: MyText
+  address2: MyText
+  state: MyString
+  country: MyString
+  zipcode: 1
 
 two:
   fname: MyString
   lname: MyString
   email: MyString
-  passowrd: MyString
-  salt: MyString
   mobile: 1.5
+  address1: MyText
+  address2: MyText
+  state: MyString
+  country: MyString
+  zipcode: 1

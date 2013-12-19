@@ -4,9 +4,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :fname
       t.string :lname
       t.string :email
-      t.string :passowrd
-      t.string :salt
-      t.float :mobile, :limit => 12
+      t.float :mobile
+      t.text :address1
+      t.text :address2
+      t.string :state
+      t.string :country
+      t.integer :zipcode
 
       t.timestamps
     end
