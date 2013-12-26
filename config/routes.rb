@@ -7,7 +7,7 @@ BgiApp::Application.routes.draw do
   get '/help', :to => 'pages#help'
   get '/signup', :to => 'users#new'
 
-  get '/country/:iso', :to => 'countries#fetch.json'
+  get '/country/:iso', :to => 'countries#fetch'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

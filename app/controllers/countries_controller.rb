@@ -10,12 +10,4 @@ class CountriesController < ApplicationController
 	def fetch_param
 		params.require(:iso)
 	end
-
-	def fetch_country
-		@country = Country.find_by iso: fetch_param.upcase
-	end
-
-	def country_params
-		params.require(:country).permit(:id, :iso)
-	end
 end
