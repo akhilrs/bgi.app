@@ -1,1 +1,1 @@
-json.extract! @country, :name, :iso
+json.extract! @country, :id, :name, :iso
