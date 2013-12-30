@@ -10,7 +10,7 @@ BgiApp::Application.routes.draw do
   get '/country/:iso', :to => 'countries#fetch',  :defaults => {:format=>'json'}
   get '/fetch_countries', :to => 'countries#fetch_all', :defaults => {:format => 'json'}
 
-  get '/fetch_states/:cid', :to => 'states#fetch_by_cid', :defaults => {:format => 'json'}
+  post '/fetch_states/:cid', :to => 'states#fetch_by_cid', :defaults => {:format => 'json'}
 
   resources :users
   get '/register', :to => 'users#new'
