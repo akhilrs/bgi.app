@@ -1,5 +1,5 @@
 BgiApp::Application.routes.draw do
-  devise_for :users
+ devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   
   root 'pages#home'
   get 'home', :to => 'pages#home'
@@ -12,8 +12,6 @@ BgiApp::Application.routes.draw do
 
   get '/fetch_states/:cid', :to => 'states#fetch_by_cid', :defaults => {:format => 'json'}
 
-  resources :users
-  get '/register', :to => 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
