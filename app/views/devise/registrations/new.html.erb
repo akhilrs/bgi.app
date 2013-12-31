@@ -14,13 +14,13 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
   <div><%= f.label :addr1, "Address1"%><br />
-  <%= f.text_field :addr1 %></div>
+  <%= f.text_area :addr1, :cols => "50" , :rows => "5" %></div>
   <div><%= f.label :addr2, "Address2"%><br />
-  <%= f.text_field :addr2 %></div>
+  <%= f.text_area :addr2, :cols => "50" , :rows => "5" %></div>
    <div>
   <%= f.hidden_field :state_id , :value => "1276"%></div>
    <div><%= f.label :country_iso, "Country"%><br />
-    <%= select_tag(:country_iso, options_from_collection_for_select(Country.all, :iso, :name)) %>
+    <%= select("user", "country_iso", options_from_collection_for_select(Country.all, :iso, :name)) %>
   </div>
    <div><%= f.label :zipcode, "Zipcode"%><br />
   <%= f.text_field :zipcode %></div>
