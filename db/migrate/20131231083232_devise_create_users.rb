@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text :addr1
       t.text :addr2
       t.belongs_to :state
-      t.belongs_to :country
+      t.string :country_iso, :limit => 10
       t.string :zipcode, :limit => 10
 
       ## Recoverable
