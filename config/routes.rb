@@ -1,5 +1,5 @@
 BgiApp::Application.routes.draw do
- devise_for :users, :path => 'auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+ devise_for :users, :controllers => {:registrations =>  'registrations'}, :path => 'auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   
   root 'pages#home'
   get 'home', :to => 'pages#home'
