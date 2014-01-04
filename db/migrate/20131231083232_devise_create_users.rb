@@ -6,11 +6,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :lname, :limit => 50
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
-      t.text :addr1
-      t.text :addr2
       t.belongs_to :state
       t.string :country_iso, :limit => 10
       t.string :zipcode, :limit => 10
+      t.string :signup_method, :limit => 20, :default => "manual"
+      t.boolean :active, :default => false
 
       ## Recoverable
       t.string   :reset_password_token
