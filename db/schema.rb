@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231083232) do
+ActiveRecord::Schema.define(version: 20140104153939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20131231083232) do
     t.string "iso",  limit: 2
     t.string "name", limit: 80
   end
+
+  create_table "phones", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "number",     limit: 8
+    t.string   "model",      limit: 20
+    t.string   "make",       limit: 30
+    t.string   "imei",       limit: 17
+    t.integer  "primary",    limit: 2,  default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phones", ["user_id"], name: "index_phones_on_user_id", using: :btree
 
   create_table "states", force: true do |t|
     t.string  "name",       limit: 80
@@ -30,18 +43,17 @@ ActiveRecord::Schema.define(version: 20131231083232) do
   create_table "users", force: true do |t|
     t.string   "fname",                  limit: 50
     t.string   "lname",                  limit: 50
-    t.string   "email",                             default: "",    null: false
-    t.string   "encrypted_password",                default: "",    null: false
-    t.text     "addr1"
-    t.text     "addr2"
+    t.string   "email",                             default: "",       null: false
+    t.string   "encrypted_password",                default: "",       null: false
     t.integer  "state_id"
     t.string   "country_iso",            limit: 10
     t.string   "zipcode",                limit: 10
+    t.string   "signup_method",          limit: 20, default: "manual"
     t.boolean  "active",                            default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,     null: false
+    t.integer  "sign_in_count",                     default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
