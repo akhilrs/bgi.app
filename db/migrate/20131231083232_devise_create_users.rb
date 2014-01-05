@@ -9,7 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.belongs_to :state
       t.string :country_iso, :limit => 10
       t.string :zipcode, :limit => 10
-      t.string :signup_method, :limit => 20, :default => "manual"
+      t.string :provide, :limit => 50
+      t.string :uid
       t.boolean :active, :default => false
 
       ## Recoverable

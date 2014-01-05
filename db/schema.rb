@@ -43,17 +43,18 @@ ActiveRecord::Schema.define(version: 20140104153939) do
   create_table "users", force: true do |t|
     t.string   "fname",                  limit: 50
     t.string   "lname",                  limit: 50
-    t.string   "email",                             default: "",       null: false
-    t.string   "encrypted_password",                default: "",       null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.integer  "state_id"
     t.string   "country_iso",            limit: 10
     t.string   "zipcode",                limit: 10
-    t.string   "signup_method",          limit: 20, default: "manual"
+    t.string   "provide",                limit: 50
+    t.string   "uid"
     t.boolean  "active",                            default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,        null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
