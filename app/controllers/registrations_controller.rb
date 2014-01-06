@@ -24,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
 		render json: responds.to_json
   	end
 
-  	def mobile
+  	def mobile_signin
   		password = Devise.friendly_token[0,20]
   		auth_code = Rails.application.config.android_authentication_code
   		if params.has_key?(:auth_code)

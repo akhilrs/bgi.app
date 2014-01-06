@@ -2,7 +2,7 @@ BgiApp::Application.routes.draw do
   devise_for :users, :controllers => {:registrations =>  'registrations', :omniauth_callbacks => "users/omniauth_callbacks"}, :path => 'auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   devise_scope :user do
-     post '/auth/mobile', :to => 'registrations#mobile'
+     post '/auth/mobile_signin', :to => 'registrations#mobile_signin'
   end
   root 'pages#home'
   get 'home', :to => 'pages#home'
