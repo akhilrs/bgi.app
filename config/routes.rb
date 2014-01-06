@@ -1,6 +1,8 @@
 BgiApp::Application.routes.draw do
- devise_for :users, :controllers => {:registrations =>  'registrations'}, :path => 'auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
-  
+  devise_for :users, :controllers => {:registrations =>  'registrations', :omniauth_callbacks => "users/omniauth_callbacks"}, :path => 'auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  #devise_scope :user do
+    #get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  #end
   root 'pages#home'
   get 'home', :to => 'pages#home'
   get '/contact', :to => 'pages#contact'

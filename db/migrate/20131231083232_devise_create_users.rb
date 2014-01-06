@@ -4,14 +4,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.string :fname, :limit => 50
       t.string :lname, :limit => 50
+      t.string :image, :limit => 255
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
-      t.belongs_to :state
-      t.string :country_iso, :limit => 10
-      t.string :zipcode, :limit => 10
-      t.string :provide, :limit => 50
+      t.string :provider, :limit => 50
       t.string :uid
-      t.boolean :active, :default => false
 
       ## Recoverable
       t.string   :reset_password_token
@@ -28,10 +25,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       ## Confirmable
-      t.string   :confirmation_token
-      t.datetime :confirmed_at
-      t.datetime :confirmation_sent_at
-      t.string   :unconfirmed_email # Only if using reconfirmable
+      #t.string   :confirmation_token
+      #t.datetime :confirmed_at
+      #t.datetime :confirmation_sent_at
+      #t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, :default => 0, :null => false # Only if lock strategy is :failed_attempts
@@ -44,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
-    add_index :users, :confirmation_token,   :unique => true
+    #add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
   end
 end

@@ -227,9 +227,10 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '434639389998049', 'fda773651a8033a56879b0bb914621b6', :scope => 'user,public_repo'
+  require "omniauth-facebook"
+  config.omniauth :facebook, '434639389998049', 'fda773651a8033a56879b0bb914621b6',  {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
   require "omniauth-google-oauth2"
-  config.omniauth :google_oauth2, '1025776291973-i2ctggcuoi06f2nspcns22q7dppbk9vq.apps.googleusercontent.com', 'f9XrU0P1FmjBDggRxh_gsPWf', { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, '1025776291973-i2ctggcuoi06f2nspcns22q7dppbk9vq.apps.googleusercontent.com', 'f9XrU0P1FmjBDggRxh_gsPWf', { access_type: "offline", approval_prompt: "", :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
