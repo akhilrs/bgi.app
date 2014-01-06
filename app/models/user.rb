@@ -36,4 +36,18 @@ class User < ActiveRecord::Base
 	    end
 	    user
 	end
+
+	def self.find_provider_user(params)
+		user = User.where(:email => params[:email], :uid =>  params[:uid]).first
+		unless user
+			user = User.create(fname:params[:fname],
+					lname:params[:lname],
+                     provider:params[:provider],
+                     uid:params[:uid],
+                     email:params[:email],
+                     password:Devise.friendly_token[0,20]
+                 )
+		end
+		user
+	end
 end
