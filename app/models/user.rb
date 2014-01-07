@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	  	user
 	end
 
-	def self.authenticate_user(auth)
+	def self.authenticate_user(auth, signed_in_resource=nil)
 		if defined?(auth.provider) && auth.provider == 'google_oauth2'
 			user = User.where(:google_oauth2 => 1, :gid => auth.uid).first
 			if !user.nil?
