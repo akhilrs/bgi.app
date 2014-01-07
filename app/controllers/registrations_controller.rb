@@ -30,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
   		if params.has_key?(:auth_code)
 	  		if auth_code == params[:auth_code]
 	  			if validate(params) == true
-		  			user = User.authenticate_user(params)
+		  			user = User.authenticate_user_mobile(params)
 		  			if user['found'] == true && params[:provider] == user['provider']
  						@user = User.where(:email => params[:email]).first
 		  			elsif user['found'] == true && params[:provider] != user['provider']

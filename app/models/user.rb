@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
 	    user
 	end
 
-	def self.authenticate_user(params)
+	def self.authenticate_user_mobile(params)
 		user = User.where(:email => params[:email]).first
 		if !user.nil?
 			provider = (user.google_oauth2 == 1) ? 'google_oauth2' : 'facebook'
