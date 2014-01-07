@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 				response = {'status' => 'notfound'} 
 			end
 		else
-			user = User.where(:facebook => 1, :fid => access_token["uid"]).first
+			user = User.where(:facebook => 1, :fid => auth["uid"]).first
 			if !user.nil?
 				response = {'status' => 'found'}
 			else
