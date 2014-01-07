@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 		else
 			return {'found' => false}
 		end
-
+		user
 	end
 	def self.create_user(params)
 		user = User.create(fname:params[:fname],

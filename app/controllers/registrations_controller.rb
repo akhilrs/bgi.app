@@ -61,7 +61,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   	def validate(params)
-		requiredParams = ['fname', 'email', 'auth_code','provider', 'uid']
+		requiredParams = ['fname', 'email', 'auth_code','provider', 'uid', 'number', 'imei']
 		@@missing_params = requiredParams-params.keys
 		valid = true
 		if @@missing_params.any?
