@@ -30,9 +30,18 @@ class RegistrationsController < Devise::RegistrationsController
   		if params.has_key?(:auth_code)
 	  		if auth_code == params[:auth_code]
 	  			if validate(params) == true
-		  			@user = User.find_provider_user(params)
+		  			user = User.authenticate_user(params)
+		  			if user['found'] == true && params[:provider] == user['provider']
+ 						@user = User.where(:email => params[:email]).first
+		  			elsif user['found'] == true && params[:provider] != user['provider']
+		  				@user = User.update_user(params)
+		  			else
+		  				@user = User.create_user(params)
+		  			end
 		  			if @user.persisted?
 		  				render json: {'status' => 'success', 'message' => 'Signed in successfully!'}
+		  			else
+		  				render json: {'status' => 'failed', 'message' => 'Oops something wrong happened!'}
 		  			end
 	  			else
 	  				missing = ""

@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 20140104153939) do
     t.datetime "updated_at"
   end
 
-  add_index "phones", ["user_id"], name: "index_phones_on_user_id", using: :btree
-
   create_table "states", force: true do |t|
     t.string  "name",       limit: 80
     t.integer "country_id"
@@ -46,8 +44,10 @@ ActiveRecord::Schema.define(version: 20140104153939) do
     t.string   "image"
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
-    t.string   "provider",               limit: 50
-    t.string   "uid"
+    t.integer  "facebook",               limit: 2,  default: 0
+    t.integer  "google_oauth2",          limit: 2,  default: 0
+    t.string   "fid"
+    t.string   "gid"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

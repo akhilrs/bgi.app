@@ -7,8 +7,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :image, :limit => 255
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
-      t.string :provider, :limit => 50
-      t.string :uid
+      t.integer :facebook, :limit => 1, :default => 0
+      t.integer :google_oauth2, :limit => 1, :default => 0
+      t.string :fid
+      t.string :gid
 
       ## Recoverable
       t.string   :reset_password_token

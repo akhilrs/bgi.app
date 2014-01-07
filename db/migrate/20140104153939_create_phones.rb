@@ -1,7 +1,7 @@
 class CreatePhones < ActiveRecord::Migration
   def change
     create_table :phones do |t|
-      t.references :user, index: true
+      t.belongs_to :user
       t.integer :number, :limit => 8
       t.string :model, :limit => 20
       t.string :make, :limit => 30
