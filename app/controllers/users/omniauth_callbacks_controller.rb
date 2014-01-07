@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       		flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
       		sign_in_and_redirect @user, :event => :authentication
       	else
-      		flash[:notice] = "User not found with this google account, Please register using your mobile device."
+      		flash[:notice] = "No account found with this google account, Please register using your mobile device."
       		redirect_to root_path
       	end
   	end
@@ -35,7 +35,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       		set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
       		sign_in_and_redirect @user, :event => :authentication
       	else
-      		flash[:notice] = "User not found with this facebook account, Please register using your mobile device."
+      		flash[:notice] = "No account found with this facebook account, Please register using your mobile device."
       		redirect_to root_path
       	end
   	end
