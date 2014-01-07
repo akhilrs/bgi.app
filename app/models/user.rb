@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
 	def self.authenticate_user(params)
 		user = User.where(:email => params[:email]).first
-		if user.persisted?
+		if !user.nil?
 			provider = (user.google_oauth2 == 1) ? 'google_oauth2' : 'facebook'
 			return {'found' => true, 'provider' => provider}
 		else
@@ -48,13 +48,23 @@ class User < ActiveRecord::Base
 		user
 	end
 	def self.create_user(params)
+		if params[:provider] == 'facebook'
 		user = User.create(fname:params[:fname],
 				lname:params[:lname],
-	             provider:params[:provider],
-	             uid:params[:uid],
+	             facebook: 1,
+	             fid:params[:uid],
 	             email:params[:email],
 	             password:Devise.friendly_token[0,20]
 	         )
+		else
+			user = User.create(fname:params[:fname],
+				lname:params[:lname],
+	             google_oauth2: 1,
+	             gid:params[:uid],
+	             email:params[:email],
+	             password:Devise.friendly_token[0,20]
+	         )
+		end
 		user.phones.create(
 				number: params[:number],
 				make: params[:make],
