@@ -19,6 +19,23 @@ class User < ActiveRecord::Base
 	  	user
 	end
 
+	def self.authenticate_user(auth)
+		if defined?(auth.provider) && auth.provider == 'google_oauth2'
+			user = User.where(:google_oauth2 => 1, :gid => auth.uid).first
+			if !user.nil?
+				response = {'status' => 'found'}
+			else
+				response = {'status' => 'notfound'} 
+		else
+			user = User.where(:facebook => 1, :fid => access_token["uid"]).first
+			if !user.nil?
+				response = {'status' => 'found'}
+			else
+				response = {'status' => 'notfound'}
+			end
+		end
+		response
+	end
 
 	def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
 	    data = access_token.info
