@@ -20,17 +20,17 @@ class User < ActiveRecord::Base
 	end
 
 	def self.authenticate_user(auth, signed_in_resource=nil)
-		if defined?(auth.provider) && auth.provider == 'google_oauth2'
+		if !(auth.provider).nil? && auth.provider == 'google_oauth2'
 			user = User.where(:google_oauth2 => 1, :gid => auth.uid).first
 			if !user.nil?
-				response = {'status' => 'found'}
+				response = {'status' => 'found', 'userid' => user.id}
 			else
 				response = {'status' => 'notfound'} 
 			end
 		else
 			user = User.where(:facebook => 1, :fid => auth["uid"]).first
 			if !user.nil?
-				response = {'status' => 'found'}
+				response = {'status' => 'found', 'userid' => user.id}
 			else
 				response = {'status' => 'notfound'}
 			end
