@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CallLogTest < ActiveSupport::TestCase
+class CalllogTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

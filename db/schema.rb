@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104153939) do
+ActiveRecord::Schema.define(version: 20140110085236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calllogs", force: true do |t|
+    t.integer  "phone_id"
+    t.string   "number",     limit: 13
+    t.string   "name",       limit: 50
+    t.string   "calltype",   limit: 10
+    t.datetime "datetime"
+    t.time     "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", force: true do |t|
     t.string "iso",  limit: 2
@@ -23,10 +34,11 @@ ActiveRecord::Schema.define(version: 20140104153939) do
 
   create_table "phones", force: true do |t|
     t.integer  "user_id"
-    t.integer  "number",     limit: 8
+    t.string   "number",     limit: 13
     t.string   "model",      limit: 20
     t.string   "make",       limit: 30
     t.string   "imei",       limit: 17
+    t.string   "serialno",   limit: 30
     t.integer  "primary",    limit: 2,  default: 1
     t.datetime "created_at"
     t.datetime "updated_at"

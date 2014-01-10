@@ -15,6 +15,10 @@ BgiApp::Application.routes.draw do
 
   get '/fetch_states/:cid', :to => 'states#fetch_by_cid', :defaults => {:format => 'json'}
 
+  #Call Log
+
+  post '/log/submit', :to => 'calllogs#submit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

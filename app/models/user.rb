@@ -87,7 +87,8 @@ class User < ActiveRecord::Base
 				number: params[:number],
 				make: params[:make],
 				model: params[:model],
-				imei: params[:imei]
+				imei: params[:imei],
+				serialno: params[:serialno]
 			)
 		user
 	end
