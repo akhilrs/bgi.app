@@ -66,13 +66,12 @@ class CalllogsController < ApplicationController
 
 	def list
 		if !current_user.blank?
-			user = User.find(2)
-			@phones = user.phones.first
-			@log = true
-			if @phones.nil?
+			user = User.find(current_user)
+			@calllogs = user.phones.first.calllogs
+			if @calllogs.nil?
 				@log = false
 			else
-				@calllogs = @phones.calllogs
+				@log = true
 			end
 		end
 	end
