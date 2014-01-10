@@ -70,11 +70,9 @@ class RegistrationsController < Devise::RegistrationsController
 		return valid
 	end
 	protected
-
+   def after_sign_up_path_for(resource)
+    	log_list_path
+   end
 	
-	private
 
-	def mobile_params
-		params.permit(:fname, :lname, :email, :provider, :uid, :auth_code)
-	end
 end
