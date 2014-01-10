@@ -6,12 +6,13 @@ class Calllog < ActiveRecord::Base
 		name = (params[:name] != "") ? params[:name] : ""
 		puts params[:type]
 		if !@phone.nil?
+			duration = Time.at(params[:duration]).utc.strftime("%H:%M:%S")
 			res = @phone.calllogs.create(
 								number: params[:number],
 								name: name,
 								calltype: params[:type],
 								datetime: params[:datetime],
-								duration: params[:duration]
+								duration: duration
 								)
 			response = {'status' => 'success', 'message' => 'Added successfully'}
 		else
