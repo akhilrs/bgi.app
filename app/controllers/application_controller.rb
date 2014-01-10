@@ -11,10 +11,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fname, :lname, :email, :image, :password, :password_confirmation, :facebook, :google_oauth2, :gid, :fid, :number, :make, :model, :imei, :serialno) }
   end
-
-  def after_sign_in_path_for(resource_or_scope)
-   if request.env['omniauth.origin']
-      redirect_to log_list_path
-    end
-  end
 end
