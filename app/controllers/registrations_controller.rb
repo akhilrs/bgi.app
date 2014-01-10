@@ -73,6 +73,14 @@ class RegistrationsController < Devise::RegistrationsController
    def after_sign_up_path_for(resource)
     	log_list_path
    end
-	
+
+   def sign_in_and_redirect(resource_or_scope,resource)
+	    if resource_or_scope == :user
+	      redirect_to log_list_path
+	    else
+	      super
+	    end
+	end
+
 
 end
