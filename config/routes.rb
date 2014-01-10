@@ -4,6 +4,9 @@ BgiApp::Application.routes.draw do
   devise_scope :user do
      post '/auth/mobile_signin', :to => 'registrations#mobile_signin'
   end
+  namespace devise_for do
+    root :to => "calllogs#list"
+  end
   root 'pages#home'
   get 'home', :to => 'pages#home'
   get '/contact', :to => 'pages#contact'
