@@ -1,5 +1,6 @@
 class CalllogsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
+	before_filter :authenticate_user!, only: [:list]
 	@@missing_params
 	def submit
 		response = {'status' => '', 'message' => ''}
@@ -64,7 +65,10 @@ class CalllogsController < ApplicationController
 	end
 
 	def list
-		@t = user_session
+		if !current_user.blank?
+			user = User.find(2)
+			@calllogs = user.phones.first.calllogs
+		end
 	end
 
 

@@ -1,1 +1,20 @@
-<%= @t %>
+<table>
+	<thead>
+		<th>Datetime</th>
+		<th>Type</th>
+		<th>Name</th>
+		<th>Number</th>
+		<th>Duration</th>
+	</thead>
+	<tbody>
+		<% @calllogs.each do |log| %>
+			<tr>
+				<td><%= log['datetime'] %></td>
+				<td><%= log['calltype'] %></td>
+				<td><%= log['name'] %></td>
+				<td><%= log['number'] %></td>
+				<td><%= log['duration'] %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
