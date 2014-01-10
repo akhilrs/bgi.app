@@ -7,14 +7,20 @@
 		<th>Duration</th>
 	</thead>
 	<tbody>
-		<% @calllogs.each do |log| %>
-			<tr>
-				<td><%= log['datetime'] %></td>
-				<td><%= log['calltype'] %></td>
-				<td><%= log['name'] %></td>
-				<td><%= log['number'] %></td>
-				<td><%= log['duration'] %></td>
-			</tr>
+		<% if @log == true %>
+			<% @calllogs.each do |log| %>
+				<tr>
+					<td><%= log['datetime'] %></td>
+					<td><%= log['calltype'] %></td>
+					<td><%= log['name'] %></td>
+					<td><%= log['number'] %></td>
+					<td><%= log['duration'] %></td>
+				</tr>
+			<% end %>
+		<% else %>
+				<tr>
+					<td colspan="5" style="text-align:center"> No call logs added! </td>
+				</tr>
 		<% end %>
 	</tbody>
 </table>
