@@ -6,7 +6,7 @@ class Calllog < ActiveRecord::Base
 		name = (params[:name] != "") ? params[:name] : ""
 		puts params[:type]
 		if !@phone.nil?
-			duration = Time.at(params[:duration]).utc.strftime("%H:%M:%S")
+			duration = Time.at((params[:duration]).to_i).utc.strftime("%H:%M:%S")
 			res = @phone.calllogs.create(
 								number: params[:number],
 								name: name,

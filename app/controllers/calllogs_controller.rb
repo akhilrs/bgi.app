@@ -63,6 +63,10 @@ class CalllogsController < ApplicationController
 		render json: response.to_json		
 	end
 
+	def list
+		@t = user_session
+	end
+
 
 	private 
 	def validate(params)
