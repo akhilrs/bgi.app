@@ -4,7 +4,6 @@ class Calllog < ActiveRecord::Base
 	def self.add_log(params, serialno)
 		@phone = Phone.find_by_serialno(serialno)
 		name = (params[:name] != "") ? params[:name] : ""
-		puts params[:type]
 		if !@phone.nil?
 			duration = Time.at((params[:duration]).to_i).utc.strftime("%H:%M:%S")
 			res = @phone.calllogs.create(
