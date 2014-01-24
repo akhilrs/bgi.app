@@ -10,11 +10,11 @@
 		<% if @log == true %>
 			<% @calllogs.each do |log| %>
 				<tr>
-					<td><%= log['datetime'] %></td>
+					<td><%= log['datetime'].in_time_zone("Asia/Kolkata") %></td>
 					<td><%= log['calltype'] %></td>
 					<td><%= log['name'] %></td>
 					<td><%= log['number'] %></td>
-					<td><%= log['duration'] %></td>
+					<td><%= log['duration'].strftime("%H:%M:%S") %></td>
 				</tr>
 			<% end %>
 		<% else %>
@@ -23,4 +23,4 @@
 				</tr>
 		<% end %>
 	</tbody>
-</table>
+</table>	

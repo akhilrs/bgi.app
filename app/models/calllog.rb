@@ -10,7 +10,7 @@ class Calllog < ActiveRecord::Base
 								number: params[:number],
 								name: name,
 								calltype: params[:type],
-								datetime: params[:datetime],
+								datetime: Time.parse(params[:datetime]).utc,
 								duration: params[:duration]
 								)
 			response = {'status' => 'success', 'message' => 'Added successfully'}
